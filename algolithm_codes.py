@@ -1,7 +1,7 @@
 import heapq
 
-
-
+n, m = map(int, input().split())
+a = [list(map(int, list(input()))) for _ in range(n)]
 #매트릭스를 90% 회전시켜주는 코드
 def rotate_a_matrix_by_90_degree(a):
     n = len(a)
@@ -11,6 +11,10 @@ def rotate_a_matrix_by_90_degree(a):
         for j in range(m):
             result[j][n - i -1] = a[i][j]
     return result
+
+#또는 
+board = list(map(list, zip(*board[::-1])))
+
 
 # 전체돌면서 확인
 def check(new_lock):
@@ -178,4 +182,39 @@ def solution(board):
             board[i][j] = max(mins + 1, board[i][j])
     print(list(chain.from_iterable(board)))
     return max(list(chain.from_iterable(board))) ** 2
+
+
+#복사를 할떄 리스트안의 리스트 즉 인접행렬 을 복사시에는 copy.deepcopy 를 해야한다.
+import copy
+def update_board(m,n,board):
+    while True:
+        temp=copy.deepcopy(board)
+        print(temp,1)
+        for i in range(m-2,-1,-1):
+            for j in range(n-1):
+                if board[i][j]!= 0:
+                    print(i,j)
+                    if board[i+1][j]==0:
+                        board[i+1][j]=board[i][j]
+                        board[i][j]=0
+        print(board,2)
+        print(temp,3)
+        if board == temp:
+            return copy.deepcopy(board)
+
+
+
+#하노이 재귀
+
+
+def hanoi(n, a, b, c,answer):
+    if n == 1:
+        answer.append([a,c])
+        return answer
+    else:
+        hanoi(n - 1, a, c, b,answer)
+        answer.append([a,c])
+        hanoi(n - 1, b, a, c,answer)
+        
+    return answer
 

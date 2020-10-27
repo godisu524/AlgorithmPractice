@@ -22,3 +22,6 @@ def solution(N):
 
 
 print(solution(1400000000))
+
+
+

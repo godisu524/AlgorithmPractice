@@ -34,16 +34,13 @@ def solution(key, lock):
                 for i in range(m):
                     for j in range(m):
                         new_lock[x+i][y+j] += key[i][j]
-                for i in new_lock:
-                    print(i)
-                print("")
+                #for i in new_lock:
+                #    print(i)
+                #print("")
                 if check(new_lock)== True:
                     return True
                 for i in range(m):
                     for j in range(m):
                         new_lock[x+i][y+j] -= key[i][j]
+    return False
                 
-
-
-print(solution([[0,0,0],[1,0,0],[0,1,1]], [[1,1,1],[1,1,0],[1,0,1]]))
-
