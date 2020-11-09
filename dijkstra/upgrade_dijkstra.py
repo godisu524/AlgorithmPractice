@@ -1,3 +1,5 @@
+#최단경로 찾기 한지점에서 
+
 import heapq
 import sys
 input = sys.stdin.readline
@@ -6,6 +8,7 @@ INF = int(1e9)
 #노드의 개수, 간선
 
 n,m = map(int, input().split())
+
 
 start = int(input())
 

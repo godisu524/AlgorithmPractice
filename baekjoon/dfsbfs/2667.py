@@ -6,7 +6,7 @@ from collections import deque
 # dx[3], dy[3] => 위
 dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]
- 
+
 n= int(input())
 a = [list(map(int, list(input()))) for _ in range(n)]
 q = deque()
