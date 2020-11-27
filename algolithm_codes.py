@@ -108,7 +108,7 @@ def lcs(word1, word2):
                 index = i + 1 
     return word1[index-max:index] 
 
-#가장 큰 증가하는 수열
+#가장 큰 증가하는 수열 합
 n = int(input())
 lst = list(map(int, input().split()))
 
@@ -119,6 +119,18 @@ for i in range(n):
         if lst[i] > lst[j]:
             dp[i] = max(dp[i], dp[j] + lst[i])
 print(max(dp))
+
+
+n = int(input())
+a = [0]+list(map(int, input().split()))
+DP = [0]*(n+1)
+#가장 큰 증가하는수열 길이
+for i in range(1,n+1):
+    for j in range(1, i):
+        if a[i] > a[i-j]:
+            DP[i] = max(DP[i-j], DP[i])
+    DP[i] += 1
+print(max(DP))
 
 
 #행렬 덧셈
